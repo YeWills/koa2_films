@@ -1,0 +1,23 @@
+{
+  "name": "douban-trailer-imooc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitee.com:wolf18387/douban-trailer-imooc.git"
+  },
+  "keywords": [
+    "movie",
+    "trailer"
+  ],
+  "author": "Scott",
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.4.1"
+  }
+}
