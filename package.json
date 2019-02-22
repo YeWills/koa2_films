@@ -18,6 +18,8 @@
   "author": "Scott",
   "license": "MIT",
   "dependencies": {
-    "koa": "^2.4.1"
+    "ejs": "^2.5.7",
+    "koa": "^2.4.1",
+    "pug": "^2.0.0-rc.4"
   }
 }
