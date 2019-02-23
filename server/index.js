@@ -11,7 +11,7 @@ app.use(views(resolve(__dirname, './views'), {
 app.use(async (ctx, next) => {
   await ctx.render('index', {
     you: 'Luke',
-    me: 'Scott',
+    me: 'Scott'
   })
 })
 
