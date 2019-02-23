@@ -1,1 +1,2 @@
-# douban-trailer-imooc
+- npm start 启动页面；
+- npm run movie 爬取数据
