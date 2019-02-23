@@ -1,2 +1,2 @@
 - npm start 启动页面；
-- npm run movie 爬取数据
+- npm run pupper 爬取数据或相关事宜
