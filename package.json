@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server/index.js",
     "pupper": "node server/tasks/qiniu.js",
-    "r": "node test/event-loop.js",
+    "r": "node test/cluster.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
