@@ -1,0 +1,1 @@
+export const abc ={a:67}

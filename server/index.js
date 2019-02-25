@@ -3,7 +3,23 @@ const mongoose = require('mongoose')
 const views = require('koa-views')
 const { resolve } = require('path')
 const { connect, initSchemas, initAdmin } = require('./database/init')
-const router = require('./routes')
+const R = require('ramda')
+const MIDDLEWARES = ['router']
+
+// import {abc} from './abc.js'
+// console.log('225566')
+// console.log(abc)
+const useMiddlewares = (app) => {
+  R.map(
+    R.compose(
+      R.forEachObjIndexed(
+        initWith => initWith(app)
+      ),
+      require,
+      name => resolve(__dirname, `./middlewares/${name}`)
+    )
+  )(MIDDLEWARES)
+}
 
 ;(async () => {
   // 连接数据库
@@ -23,23 +39,9 @@ const router = require('./routes')
   // require('./tasks/trailer')
   // // 对爬取的数据上传到七牛
   // require('./tasks/qiniu')
+
+  const app = new Koa()
+  await useMiddlewares(app)
+
+  app.listen(4455)
 })()
-
-const app = new Koa()
-
-app
-  .use(router.routes())
-  .use(router.allowedMethods())
-
-app.use(views(resolve(__dirname, './views'), {
-  extension: 'pug'
-}))
-
-app.use(async (ctx, next) => {
-  await ctx.render('index', {
-    you: 'Luke',
-    me: 'Scott'
-  })
-})
-
-app.listen(4455)

@@ -1,5 +1,4 @@
-- npm start 启动页面；
-- npm run pupper 爬取数据或相关事宜
+# douban-trailer-imooc
 
 在video.js中发现了一个console.log 日志，有些地方在cmd上是无法显示的。
 
@@ -95,7 +94,7 @@ Start visit the target page
 ```
 
 
-第9章 【(此代码可运行，见readme)第9章 9-1，实现一个最小统计的api】 (hash值:e13470f9216e3) 
+第9章 【(此代码可运行，见readme)第9章 9-1，实现一个最小统计的api】 (hash值:10e5db793965) 
 
 启动方法，就是简单的 npm start：
 然后在 浏览器中访问以下地址，见到数据则正常：
@@ -116,6 +115,28 @@ Mongoose: movies.ensureIndex({ doubanId: 1 }, { unique: true, background: true }
 Mongoose: users.ensureIndex({ username: 1 }, { unique: true, background: true })
 Mongoose: users.ensureIndex({ email: 1 }, { unique: true, background: true })
 Mongoose: users.ensureIndex({ password: 1 }, { unique: true, background: true })
+
+```
+
+第9章 【(此代码可运行，见readme)第9章剩余章节code，为网站增加路由与控制器层对外提供 API 服务】 (hash值:10e5db793965) 
+
+启动方法 ：
+- **本次提交启动方法为 node start，而非npm start**，这是因为用到了装饰器已经import等这些es6特性，需要经过
+start.js 编译。
+- 本次提交的入口文件是 start.js，而非 server/index.js；
+在cmd中执行 node start；
+然后在浏览器上 运行 http://127.0.0.1:4455/api/v0/movies  ，有数据返回则正常
+启动后运行如下就是正常：
+```
+$ node start
+MongoDB Connected successfully!
+Mongoose: users.findOne({ username: 'Scott' }, { fields: {} })
+Mongoose: categories.ensureIndex({ name: 1 }, { unique: true, background: true })
+Mongoose: movies.ensureIndex({ doubanId: 1 }, { unique: true, background: true })
+Mongoose: users.ensureIndex({ username: 1 }, { unique: true, background: true })
+Mongoose: users.ensureIndex({ email: 1 }, { unique: true, background: true })
+Mongoose: users.ensureIndex({ password: 1 }, { unique: true, background: true })
+Mongoose: movies.find({}, { fields: {} })
 
 ```
 
