@@ -6,8 +6,6 @@
   "scripts": {
     "start": "node server/index.js",
     "build": "rm -rf parcel/dist && parcel build parcel/index.html --no-cache -d parcel/dist --public-url /dist/",
-    "pupper": "node server/tasks/qiniu.js",
-    "r": "node server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,7 +19,9 @@
   "author": "Scott",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "ejs": "^2.5.7",
+    "glob": "^7.1.2",
     "koa": "^2.4.1",
     "koa-static": "^4.0.2",
     "koa-views": "^6.1.3",

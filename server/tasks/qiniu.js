@@ -1,6 +1,8 @@
 const qiniu = require('qiniu')
 const nanoid = require('nanoid')
 const config = require('../config')
+const mongoose = require('mongoose')
+const Movie = mongoose.model('Movie')
 
 const bucket = config.qiniu.bucket
 const mac = new qiniu.auth.digest.Mac(config.qiniu.AK, config.qiniu.SK)
@@ -25,16 +27,18 @@ const uploadToQiniu = async (url, key) => {
 
 
 ;(async () => {
-  //将之前爬虫爬取到的图片、视频数据(本次提交中使用的是测试数据)，上传到 七牛云图床上
-  let movies = [{
-    video: 'http://vt1.doubanio.com/201712282244/a97c1e7cd9025478b43ebc222bab892e/view/movie/M/302190491.mp4',
-    doubanId: '26739551',
-    poster: 'https://img3.doubanio.com/view/photo/l_ratio_poster/public/p2506258944.jpg',
-    cover: 'https://img1.doubanio.com/img/trailer/medium/2493603388.jpg?'
-  }]
+  let movies = await Movie.find({
+    $or: [
+      { videoKey: { $exists: false } },
+      { videoKey: null },
+      { videoKey: '' }
+    ]
+  })
 
-  movies.map(async movie => {
-    if (movie.video && !movie.key) {
+  for (let i = 0; i < [movies[0]].length; i++) {
+    let movie = movies[i]
+
+    if (movie.video && !movie.videoKey) {
       try {
         console.log('开始传 video')
         let videoData = await uploadToQiniu(movie.video, nanoid() + '.mp4')
@@ -55,19 +59,12 @@ const uploadToQiniu = async (url, key) => {
         }
 
         console.log(movie)
-        // {
-        //   video: 'http://vt1.doubanio.com/201712282244/a97c1e7cd9025478b43ebc222bab892e/view/movie/M/302190491.mp4',
-        //   doubanId: '26739551',
-        //   poster: 'https://img3.doubanio.com/view/photo/l_ratio_poster/public/p2506258944.jpg',
-        //   cover: 'https://img1.doubanio.com/img/trailer/medium/2493603388.jpg?',
-        //   videoKey: 'http://video.iblack7.com/f_Cm_BJ9eBOtM9PROAF58.mp4',
-        //   coverKey: 'http://video.iblack7.com/ESImFeEEiW3RpCCsAnr3z.png',
-        //   posterKey: 'http://video.iblack7.com/uAzWzcRNDCsDi16UuEWp4.png'
-        // }
+
+        await movie.save()
       } catch (err) {
         console.log(err)
       }
     }
-  })
+  }
 })()
 
