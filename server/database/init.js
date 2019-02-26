@@ -1,11 +1,14 @@
 const mongoose = require('mongoose')
 const db = 'mongodb://localhost/douban-test'
+// glob 运行使用星号(*)来匹配，本文的作用在于使用glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
 const glob = require('glob')
 const { resolve } = require('path')
 
 mongoose.Promise = global.Promise
 
 exports.initSchemas = () => {
+  // ./schema', '**/*.js 的意思是匹配 schema目录下的所有js文件
+  // 这句话的意思是，一次全局加载 schema下的 用户，电影，电影分类建模原型。
   glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
 }
 

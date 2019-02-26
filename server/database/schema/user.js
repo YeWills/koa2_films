@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+// bcrypt 此方法 可以已经被node内置了，是一个中间件，用来控制辅助密码的
+// Windows下，可能用 bcryptjs来代替 bcrypt；
 const bcrypt = require('bcrypt')
 const Schema = mongoose.Schema
 const Mixed = Schema.Types.Mixed
@@ -55,7 +57,7 @@ userSchema.pre('save', function (next) {
 
 userSchema.pre('save', function (next) {
   if (!this.isModified('password')) return next()
-
+// bcrypt 这是用来加强密码控制的中间件
   bcrypt.genSalt(SALT_WORK_FACTOR, (err, salt) => {
     if (err) return next(err)
 

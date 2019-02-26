@@ -7,6 +7,7 @@ const Category = mongoose.model('Category')
 async function fetchMovie (item) {
   const url = `http://api.douban.com/v2/movie/${item.doubanId}`
   const res = await rp(url)
+  console.log(res)
   let body
 
   try {
@@ -29,6 +30,7 @@ async function fetchMovie (item) {
     ]
   })
 
+  // 为了防止超出 网站对被爬取每天的次数，可将此代码改为    for (let i = 0; i < movies[0].length; i++) {
   for (let i = 0; i < movies.length; i++) {
     let movie = movies[i]
     let movieData = await fetchMovie(movie)
@@ -100,6 +102,7 @@ async function fetchMovie (item) {
         movie.tags.push(tag.name)
       })
 
+      // console.log(movie)
       await movie.save()
     }
   }
