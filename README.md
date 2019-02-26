@@ -61,7 +61,7 @@ Mongoose: users.ensureIndex({ password: 1 }, { unique: true, background: true })
 ```
 
 
-第8章 【(此提交为第8章最后完整代码，可正常运行，见readme)对8 剩余章节 code 一些注释补充】 (hash值:3c094db) 
+第8章 【(此提交为第8章最后完整代码，可正常运行，见readme)对8 剩余章节 code 一些注释补充】 (hash值:e13470f9216e3) 
 此次提交为第八章整章完整代码，包含网站数据的爬取，mongoose的建数据模型，存数据，查数据。
 本提交主要涉及(包含了上次提交的内容，为方便理解，在此一并写上)
 koa2_films\server\database\schema\
@@ -94,6 +94,30 @@ Start visit the target page
 
 ```
 
+
+第9章 【(此代码可运行，见readme)第9章 9-1，实现一个最小统计的api】 (hash值:e13470f9216e3) 
+
+启动方法，就是简单的 npm start：
+然后在 浏览器中访问以下地址，见到数据则正常：
+http://127.0.0.1:4455/movies/all
+http://127.0.0.1:4455/movies/detail/5c7576ff72fde1318ce1739a  (注意的detail后的id，从上个路由中拾取)
+
+启动后运行如下就是正常：
+```
+$ npm start
+
+> douban-trailer-imooc@1.0.0 start E:\koa2_films
+> node server/index.js
+
+MongoDB Connected successfully!
+Mongoose: users.findOne({ username: 'Scott' }, { fields: {} })
+Mongoose: categories.ensureIndex({ name: 1 }, { unique: true, background: true })
+Mongoose: movies.ensureIndex({ doubanId: 1 }, { unique: true, background: true })
+Mongoose: users.ensureIndex({ username: 1 }, { unique: true, background: true })
+Mongoose: users.ensureIndex({ email: 1 }, { unique: true, background: true })
+Mongoose: users.ensureIndex({ password: 1 }, { unique: true, background: true })
+
+```
 
 项目目录说明：
 - schema 目录
