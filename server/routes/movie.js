@@ -9,6 +9,7 @@ const {
   getMovieDetail,
   getRelativeMovies
 } = require('../service/movie')
+
 @controller('/api/v0/movies')
 export class movieController {
   @get('/')

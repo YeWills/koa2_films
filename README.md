@@ -94,7 +94,7 @@ Start visit the target page
 ```
 
 
-第9章 【(此代码可运行，见readme)第9章 9-1，实现一个最小统计的api】 (hash值:10e5db793965) 
+第9章 【(此代码可运行，见readme)第9章 9-1，实现一个最小统计的api】 (hash值:03b4378060) 
 
 启动方法，就是简单的 npm start：
 然后在 浏览器中访问以下地址，见到数据则正常：
@@ -118,7 +118,7 @@ Mongoose: users.ensureIndex({ password: 1 }, { unique: true, background: true })
 
 ```
 
-第9章 【(此代码可运行，见readme)第9章剩余章节code，为网站增加路由与控制器层对外提供 API 服务】 (hash值:10e5db793965) 
+第9章 【(此代码可运行，见readme)第9章剩余章节code，为网站增加路由与控制器层对外提供 API 服务】 (hash值:a553b7f982b) 
 
 启动方法 ：
 - **本次提交启动方法为 node start，而非npm start**，这是因为用到了装饰器已经import等这些es6特性，需要经过
@@ -140,6 +140,16 @@ Mongoose: movies.find({}, { fields: {} })
 
 ```
 
+
+第10章 【10-1和10-2,可正常运行， npm start，启动后台服务，编译前台代码，然后在浏览器上访问整个页面，实现了整个前后台链路的调通，详见readme】 (hash值:10e5db793965) 
+启动方法：
+npm start；
+在浏览器输入：http://127.0.0.1:4455/
+能看到页面上的文字，说明正常
+
+
+
+
 项目目录说明：
 - schema 目录
 koa2_films\server\database\schema\
@@ -151,3 +161,29 @@ schema\category.js 给电影分类建数据模型
 - tasks 目录
 koa2_films\server\tasks\
 tasks目录下的js是用来爬取数据的
+
+- src 目录
+E:\koa2_films\src\
+src目录下 是前端代码
+
+nodemon.json  用来监听编译的
+{
+  "restartable": "rs",//定义别名 rs
+  "ignore": [//忽略这些目录的变化
+    ".git",
+    "node_modules/**/node_modules" 
+  ],
+  "verbose": true,
+  "execMap": {
+    "js": "node --harmony"
+  },
+  "watch": [
+    "server/",
+    "src/views",
+    "views"
+  ],
+  "ext": "js json"
+}
+
+<!-- 删除dist，删除.cache，设置环境变量，使用nodemon启动 start.js -->
+  "start": "rm -rf dist && rm -rf .cache && NODE_ENV=development nodemon ./start.js",
