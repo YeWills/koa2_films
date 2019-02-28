@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "rm -rf dist && rm -rf .cache && cross-env  NODE_ENV=development nodemon ./start.js",
+    "start": "rm -rf dist && rm -rf .cache && cross-env NODE_ENV=development nodemon ./start.js",
     "build": "rm -rf parcel/dist && parcel build src/index.html --no-cache -d dist --public-url /",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,6 +19,7 @@
   "author": "Scott",
   "license": "MIT",
   "dependencies": {
+    "antd": "^3.0.0",
     "bcrypt": "^1.0.3",
     "cross-env": "^5.2.0",
     "ejs": "^2.5.7",
@@ -36,6 +37,7 @@
     "ramda": "^0.25.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-router-dom": "^4.2.2",
     "request": "^2.83.0",
     "request-promise-native": "^1.0.5"
   },
