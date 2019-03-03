@@ -10,13 +10,14 @@ const {
   getRelativeMovies
 } = require('../service/movie')
 
+//http://127.0.0.1:4455/api/v0/movies
 @controller('/api/v0/movies')
 export class movieController {
   @get('/')
   async getMovies (ctx, next) {
+    ctx.set('Access-Control-Allow-Origin', '*');
     const { type, year } = ctx.query
     const movies = await getAllMovies(type, year)
-
     ctx.body = {
       movies
     }
