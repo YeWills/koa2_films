@@ -187,3 +187,20 @@ nodemon.json  用来监听编译的
 
 <!-- 删除dist，删除.cache，设置环境变量，使用nodemon启动 start.js -->
   "start": "rm -rf dist && rm -rf .cache && NODE_ENV=development nodemon ./start.js",
+
+
+
+
+第11章
+不可运行的原因是 npm start 的时候，未能编译完成，翻看git bash，可以看到一直卡住了，只有出现'√  Built in 16.84s.'是正常：
+```
+∞  Building iterator.js...
+∞  Building hmr-runtime.js...
+∞  Building js-loader.js...
+√  Built in 16.84s.
+```
+上一个提交时正常的，可以在上一次提交中叠加 本次提交，然后一遍遍运行代码看。
+另外，运行不同过时，考虑以下解决方法：
+任务器中 结束node进程；
+关闭当次 bash窗口，另开一个运行；
+重启电脑？
