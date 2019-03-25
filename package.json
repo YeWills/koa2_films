@@ -4,11 +4,7 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "build": "rm -rf parcel/dist && parcel build parcel/index.html --no-cache -d parcel/dist --public-url /dist/",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "pupper": "node server/tasks/qiniu.js",
-    "r": "node server/index.js"
+    "start": "node server/index.js"
   },
   "repository": {
     "type": "git",
