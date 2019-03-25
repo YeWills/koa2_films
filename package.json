@@ -4,9 +4,9 @@
   "description": "",
   "main": "server/index.js",
   "scripts": {
-    "start": "node server/index.js",
-    "pupper": "node server/tasks/trailer.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "pupper_movie": "node server/tasks/movie.js",
+    "pupper_vedio": "node server/tasks/trailer.js",
+    "server-http": "node server/tasks/api.js"
   },
   "repository": {
     "type": "git",

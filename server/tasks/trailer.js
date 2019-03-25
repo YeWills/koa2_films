@@ -24,6 +24,7 @@ const { resolve } = require('path')
   })
 
   child.on('message', data => {
+    console.log('9999')
     console.log(data)
   })
 })()

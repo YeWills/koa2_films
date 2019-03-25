@@ -25,7 +25,7 @@ const { resolve } = require('path')
 
   child.on('message', data => {
     let result = data.result
-
+console.log(1112)
     console.log(result)
   })
 })()
