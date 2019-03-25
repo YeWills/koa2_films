@@ -1,5 +1,24 @@
 # douban-trailer-imooc
 
+
+
+```
+另外说明下 第11章运行不成功的原因，本branch没有集成第11章代码，只是在这里做一个说明：
+不可运行的原因是 npm start 的时候，未能编译完成，翻看git bash，可以看到一直卡住了，只有出现'√  Built in 16.84s.'是正常：
+```
+∞  Building iterator.js...
+∞  Building hmr-runtime.js...
+∞  Building js-loader.js...
+√  Built in 16.84s.
+```
+上一个提交时正常的，可以在上一次提交中叠加 本次提交，然后一遍遍运行代码看。
+另外，运行不同过时，考虑以下解决方法：
+任务器中 结束node进程；
+关闭当次 bash窗口，另开一个运行；
+重启电脑？
+
+```
+
 在video.js中发现了一个console.log 日志，有些地方在cmd上是无法显示的。
 
 npm script 中使用了rm -rf 这些linux命令，如果在Windows下，使用cmd 运行此命令报错；此时请使用git bash 运行命令；git bash集成了一些Linux命令。
@@ -147,6 +166,10 @@ npm start；
 在浏览器输入：http://127.0.0.1:4455/
 能看到页面上的文字，说明正常
 
+可以访问以下api：
+http://127.0.0.1:4455/api/v0/movies
+
+
 
 
 
@@ -191,16 +214,3 @@ nodemon.json  用来监听编译的
 
 
 
-第11章
-不可运行的原因是 npm start 的时候，未能编译完成，翻看git bash，可以看到一直卡住了，只有出现'√  Built in 16.84s.'是正常：
-```
-∞  Building iterator.js...
-∞  Building hmr-runtime.js...
-∞  Building js-loader.js...
-√  Built in 16.84s.
-```
-上一个提交时正常的，可以在上一次提交中叠加 本次提交，然后一遍遍运行代码看。
-另外，运行不同过时，考虑以下解决方法：
-任务器中 结束node进程；
-关闭当次 bash窗口，另开一个运行；
-重启电脑？
