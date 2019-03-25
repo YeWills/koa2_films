@@ -130,3 +130,7 @@ schema\category.js 给电影分类建数据模型
 - tasks 目录
 koa2_films\server\tasks\
 tasks目录下的js是用来爬取数据的
+
+
+知识点：
+展示了koa-views的使用

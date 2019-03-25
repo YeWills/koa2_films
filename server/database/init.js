@@ -1,6 +1,7 @@
 const mongoose = require('mongoose')
 const db = 'mongodb://localhost/douban-test'
-// glob 运行使用星号(*)来匹配，本文的作用在于使用glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
+// glob 运行使用星号(*)来匹配，本文的作用在于使用
+// glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
 const glob = require('glob')
 const { resolve } = require('path')
 
