@@ -20,6 +20,7 @@ export class Route {
     // 操作/routes目录下所有的路由js文件
     glob.sync(resolve(this.apiPath, './**/*.js')).forEach(require)
 
+    // routerMap将不包含E:\koa2_films\server\routes\index.js的路由，原因见readme.md
     for (let [conf, controller] of routerMap) {
       const controllers = isArray(controller)
       const prefixPath = conf.target[symbolPrefix]
