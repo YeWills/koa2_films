@@ -124,3 +124,14 @@ puppeteer 需要科学上网才能安装，如果无法科学上网，就不要�
 
 本项目基于Scott讲师的课程整理而来。
 
+
+本仓库是学习 koa2 整理出来的demo；
+此仓库下还有以下分支
+
+
+koa_no_router //纯净的koa，使用原生的app.use写接口，不适用koa-router
+koa_web   //主分支，前后端一起
+puppeteer //纯爬虫demo
+small_api //纯后台的demo(含爬虫)
+event_IO_loop //nodejs 异步io的理解 阻塞非阻塞，事件循环与驱动，单线程，子进程，进程通讯 events 框架的使用小demo
+a51_chapter11_code //此分支不用看，为第11章以后源码备份。
