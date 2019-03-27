@@ -8,8 +8,13 @@ npm start；
 在浏览器输入：http://127.0.0.1:4455/
 能看到页面上的文字，说明正常
 
+注意的是，如何需要重新爬取数据，请放开E:\koa2_films\server\index.js上的注释，然后运行
+
 可以访问以下api：
 http://127.0.0.1:4455/api/v0/movies
+http://127.0.0.1:4455/movies/all
+(5c9b91bc1cf9172224c8f21b是id，每次都不同,根据http://127.0.0.1:4455/movies/all接口来)
+http://127.0.0.1:4455/movies/detail/5c9b91bc1cf9172224c8f21b   
 
 难点理解：
 - 为什么只能显示 /api/v0/movies路由？

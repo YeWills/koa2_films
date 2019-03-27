@@ -26,6 +26,9 @@ const useMiddlewares = (app) => {
 
   await initAdmin()
 
+  // 这四句注释是用来爬取数据的，因为豆瓣网页爬取的次数有限制，所以只要爬取数据存入数据库后，
+  // 数据库有数据供项目使用了，
+  // 就将这四句注释，如果要看爬取数据，解注试试
   // require('./tasks/movie')
   // require('./tasks/api')
   // require('./tasks/trailer')

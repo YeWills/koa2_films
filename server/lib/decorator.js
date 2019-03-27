@@ -1,4 +1,5 @@
 const Router = require('koa-router')
+const mongoose = require('mongoose')
 const { resolve } = require('path')
 const _ = require('lodash')
 const glob = require('glob')
@@ -28,6 +29,26 @@ export class Route {
       const routerPath = prefixPath + conf.path
       this.router[conf.method](routerPath, ...controllers)
     }
+
+    // http://127.0.0.1:4455/movies/all
+    this.router.get('/movies/all', async (ctx, next) => {
+      const Movie = mongoose.model('Movie');
+      const movies = await Movie.find({}).sort({
+          'meta.createdAt': -1
+      })
+      ctx.body = {
+          movies
+      }
+   })
+    // http://127.0.0.1:4455/movies/detail/5c98ff2901d1b42ba8aa8749
+    this.router.get('/movies/detail/:id', async (ctx, next) => {
+      const Movie = mongoose.model('Movie');
+      const id = ctx.params.id;
+      const movie = await Movie.findOne({_id: id})
+      ctx.body = {
+          movie
+      }
+    })
 
     this.app.use(this.router.routes())
     this.app.use(this.router.allowedMethods())
