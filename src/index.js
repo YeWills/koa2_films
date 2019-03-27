@@ -6,4 +6,4 @@ function changeTitle () {
 
 setTimeout(function () {
   changeTitle()
-}, 2000)
+}, 10)
