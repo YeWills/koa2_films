@@ -4,6 +4,19 @@
   <meta charset='utf-8' />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>黑骑预告片网站</title>
+  <script>
+   function handleClick(){
+    console.log(77)
+    fetch('/testCores').then(response => response.json())
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>{
+      console.log('err',err)
+    })
+  }
+</script>
+</script>
 </head>
 <body>
   <div id="app"></div>

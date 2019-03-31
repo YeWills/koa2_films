@@ -19,6 +19,8 @@ export const dev = async app => {
   })
 
   app.use(async (ctx) => {
+    console.log('852')
     await ctx.render('index.html')
+    
   })
 }

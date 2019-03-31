@@ -1,4 +1,5 @@
 const Router = require('koa-router')
+const rp = require('request-promise-native')
 const mongoose = require('mongoose')
 const { resolve } = require('path')
 const _ = require('lodash')
@@ -30,6 +31,23 @@ export class Route {
       this.router[conf.method](routerPath, ...controllers)
     }
 
+    this.router.get('/testCores', async (ctx, next) => {
+        const url = `http://api.douban.com/v2/movie/1764796`
+        const res = await rp(url)
+        console.log(res)
+        let body
+        try {
+          body = JSON.parse(res)
+        } catch (err) {
+          console.log(err)
+        }
+        console.log(body)
+      ctx.body = {
+          movies:body
+      }
+   })
+
+
     // http://127.0.0.1:4455/movies/all
     this.router.get('/movies/all', async (ctx, next) => {
       const Movie = mongoose.model('Movie');
@@ -49,6 +67,18 @@ export class Route {
           movie
       }
     })
+
+    this.router.get('/movies/all', async (ctx, next) => {
+      const Movie = mongoose.model('Movie');
+      const movies = await Movie.find({}).sort({
+          'meta.createdAt': -1
+      })
+      ctx.body = {
+          movies
+      }
+   })
+
+  
 
     this.app.use(this.router.routes())
     this.app.use(this.router.allowedMethods())
