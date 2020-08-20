@@ -19,7 +19,7 @@
   "author": "Scott",
   "license": "MIT",
   "dependencies": {
-    "bcrypt": "^1.0.3",
+    "bcrypt": "^5.0.0",
     "cross-env": "^5.2.0",
     "ejs": "^2.5.7",
     "glob": "^7.1.2",
