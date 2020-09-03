@@ -31,7 +31,7 @@
     "mongoose": "^5.0.1",
     "nanoid": "^1.0.1",
     "pug": "^2.0.0-rc.4",
-    "puppeteer": "^0.13.0",
+    "puppeteer": "^1.13.0",
     "qiniu": "^7.1.1",
     "ramda": "^0.25.0",
     "react": "^16.1.1",
